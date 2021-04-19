@@ -7,3 +7,4 @@ class Desafio:
         self.desafio = self.desafio()
     
     def desafio(self):
+        print('')

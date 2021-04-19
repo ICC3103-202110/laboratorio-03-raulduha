@@ -15,24 +15,24 @@ def start_game():
     while True:
         if game.actual_turn == game.final_turn:
             game.actual_turn = 0 
-            print('nueva ronda...')
+            print('new rounnd...')
              
 
         elif game.actual_turn != game.final_turn:
             
-            print('es el turno de', players[game.actual_turn].name) 
+            print('its the turn of', players[game.actual_turn].name) 
             option = p1.player_action()
             while True:
                 
                 if option == 1:
                     print('you chose ingreso')
                     players[game.actual_turn].money += 1
-                    print(players[game.actual_turn].name,'monedas: ',players[game.actual_turn].money)
+                    print(players[game.actual_turn].name,'money: ',players[game.actual_turn].money)
                     break
                 elif option == 2:
                     print('you chose ayuda externa')
                     players[game.actual_turn].money += 2
-                    print(players[game.actual_turn].name,'monedas: ',players[game.actual_turn].money)
+                    print(players[game.actual_turn].name,'money: ',players[game.actual_turn].money)
                     break
                 elif option == 3:
                     print('you chose Coup')
@@ -48,19 +48,9 @@ def start_game():
                             print('3) kill', players[2].name)
 
                             kill = int(input('select the number in here: '))
-
-                            if kill == 1:
-                                players[0].cards.pop(0)
-                                print(players[0].name,players[0].cards)
-                                break
-                            elif kill == 2:
-                                players[1].cards.pop(0)
-                                print(players[1].name,players[1].cards)
-                                break
-                            elif kill == 3:
-                                players[1].cards.pop(0)
-                                print(players[2].name,players[2].cards)
-                                break
+                            players[kill-1].cards.pop(0)
+                            print(players[kill-1].name, 'cards:',players[kill-1].cards)
+                            break
 
                         elif len(players) == 4:
 
@@ -71,24 +61,9 @@ def start_game():
                             print('4) kill', players[3].name)
 
                             kill = int(input('select the number in here: '))
+                            players[kill-1].cards.pop(0)
+                            print(players[kill-1].name, 'cards:',players[kill-1].cards)
 
-                            if kill == 1:
-                                players[0].cards.pop(0)
-                                print(players[0].name,players[0].cards)
-                                break
-                            elif kill == 2:
-                                players[1].cards.pop(0)
-                                print(players[1].name,players[1].cards)
-                                break
-                            elif kill == 3:
-                                players[2].cards.pop(0)
-                                print(players[2].name,players[2].cards)
-                                break
-                            elif kill == 4:
-                                players[3].cards.pop(0)
-                                print(players[3].name,player[3].cards)
-                                break
-                    
                             break
 
                 elif option == 4:
