@@ -4,6 +4,7 @@ from game import Game
 players = []
 game = Game()
 p1 = Player(0,0,0)
+cards = Cards()
 
 def start_game():
 
@@ -12,7 +13,7 @@ def start_game():
         if game.actual_turn == game.final_turn:
             game.actual_turn = 0 
             print('nueva ronda...')
-            break 
+             
 
         elif game.actual_turn != game.final_turn:
             
@@ -32,39 +33,76 @@ def start_game():
                     break
                 elif option == 3:
                     print('you chose Coup')
-                    '''
                     if players[game.actual_turn].money < 7:
                         print('you do not have enough money to use this option.')
                     else:
-                        print('you do you want to kill:')
-                        print('1) kill', players[0].name)
-                        print('2) kill', players[1].name)
-                        print('3) kill', players[2].name)
-                        kill = int(input('select the number in here: '))
-                        if kill == 1:
-                            player[0].cards.remove[0]
-                            print(player[0].cards)
-                        elif kill == 2:
-                            player[1].cards.remove[0]
-                            print(player[1].cards)
-                        elif kill == 2:
-                            player[2].cards.remove[0]
-                            print(player[2].cards)
-                    '''
-                    break
+
+                        if len(players) == 3:
+
+                            print('you do you want to kill:')
+                            print('1) kill', players[0].name)
+                            print('2) kill', players[1].name)
+                            print('3) kill', players[2].name)
+
+                            kill = int(input('select the number in here: '))
+
+                            if kill == 1:
+                                players[0].cards.pop(0)
+                                print(players[0].name,players[0].cards)
+                                break
+                            elif kill == 2:
+                                players[1].cards.pop(0)
+                                print(players[1].name,players[1].cards)
+                                break
+                            elif kill == 3:
+                                players[1].cards.pop(0)
+                                print(players[2].name,players[2].cards)
+                                break
+
+                        elif len(players) == 4:
+
+                            print('who you do you want to kill:')
+                            print('1) kill', players[0].name)
+                            print('2) kill', players[1].name)
+                            print('3) kill', players[2].name)
+                            print('4) kill', players[3].name)
+
+                            kill = int(input('select the number in here: '))
+
+                            if kill == 1:
+                                players[0].cards.pop(0)
+                                print(players[0].name,players[0].cards)
+                                break
+                            elif kill == 2:
+                                players[1].cards.pop(0)
+                                print(players[1].name,players[1].cards)
+                                break
+                            elif kill == 3:
+                                players[2].cards.pop(0)
+                                print(players[2].name,players[2].cards)
+                                break
+                            elif kill == 4:
+                                players[3].cards.pop(0)
+                                print(players[3].name,player[3].cards)
+                                break
+                    
+                            break
+
                 elif option == 4:
                     print('you chose Capitan')
                     break
-                elif players_move == 5:
+                elif option == 5:
                     print('you chose Asesino ')
                     break
-                elif players_move == 6:  
+                elif option == 6:  
                     print('you chose Embajador') 
                     break
-                elif players_move == 7:  
+                elif option == 7:  
                     print('you chose Duque') 
+                    players[game.actual_turn].money += 3
+                    print(players[game.actual_turn].name,'monedas: ',players[game.actual_turn].money)
                     break
-                elif players_move == 6:  
+                elif option == 6:  
                     print('you chose Condesa') 
                     break
             game.actual_turn +=1

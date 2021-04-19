@@ -24,7 +24,12 @@ class Player:
         print('8) Condesa')
         players_move = int(input('choose the number of the option you want: '))
         return players_move
-        
+    
+
+    def coup(self):
+        self.cards.remove(0)
+        print('')
+
     def contraataque(self):
         print('')
     
