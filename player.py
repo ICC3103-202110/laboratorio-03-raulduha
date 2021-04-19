@@ -30,10 +30,6 @@ class Player:
         self.cards.remove(0)
         print('')
 
-    def contraataque(self):
-        print('')
     
-    def desafiar(self):
-        print('')
         
    

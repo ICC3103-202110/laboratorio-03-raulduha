@@ -1,6 +1,9 @@
 from player import Player
 from cards import Cards
 from game import Game
+from desafio import Desafio
+from contraataque import Contraataque
+
 players = []
 game = Game()
 p1 = Player(0,0,0)
